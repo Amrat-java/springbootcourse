@@ -29,26 +29,29 @@ public class Controller {
 
     // single courses get
     @GetMapping("/courses/{courseId}")
-    public Course getCourse(@PathVariable String courseId){
+    public Course getCourse(@PathVariable String courseId) {
         return this.courseService.getCourse(Long.parseLong(courseId));
     }
+
     // Course add
     @PostMapping("/courses")
-    public Course addCourse(@RequestBody Course course){
+    public Course addCourse(@RequestBody Course course) {
         return this.courseService.addCourse(course);
     }
 
     //update course using PUT request
     @PutMapping("/courses")
-    public Course updateCourse(@RequestBody Course course){
+    public Course updateCourse(@RequestBody Course course) {
         return this.courseService.updateCourse(course);
     }
+
     //delete the course
     @DeleteMapping("/courses/{courseId}")
-    public ResponseEntity<HttpStatus> deleteCourse(@PathVariable String courseId){
-        try{
+    public ResponseEntity<HttpStatus> deleteCourse(@PathVariable String courseId) {
+        try {
             this.courseService.deleteCourse(Long.parseLong(courseId));
-        }catch(Exception e){
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

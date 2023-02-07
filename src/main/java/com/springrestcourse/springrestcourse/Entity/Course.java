@@ -1,7 +1,11 @@
 package com.springrestcourse.springrestcourse.Entity;
 
-public class Course {
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
+@Entity
+public class Course {
+    @Id
     private long id;
     private String title;
     private String description;
