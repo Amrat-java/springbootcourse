@@ -71,5 +71,4 @@ public class CourseServiceImpl implements CourseService{
         courseDao.delete(entity);
     }
 
-
 }
